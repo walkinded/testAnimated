@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+}
+
+.size_dlock {
+    display: flex;
+    height: 100vh;
+    transition: 0.9s;
+    flex: 1;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.hover_img {
+    transition: .5s;
+}
+
+.hover_img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: .5s;
+    z-index: 1;
+}
+
+.full_size {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.fone1:hover {
+    transition: 0.6s;
+    background: #00C69E;
+}
+
+.fone2:hover {
+    transition: 0.6s;
+    background: #00E18F;
+}
+
+.fone3:hover {
+    transition: 0.6s;
+    background: #0095DF;
+}
+
+.fone4:hover {
+    transition: 0.6s;
+    background: #AD3DB6;
+}
+
+.fone5:hover {
+    transition: 0.6s;
+    background: #F7CA00;
+}
+
+.fone6:hover {
+    transition: 0.6s;
+    background: #FA7700;
+}
+
+.fone7:hover {
+    transition: 0.6s;
+    background: #FF2B21;
+}
+
+.fone8:hover {
+    transition: 0.6s;
+    background: #5A878C;
+}
+
+body.fixed {
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.block {
+    display: flex;
+    height: 100vh;
+    transition: 0.9s;
+    flex: 1;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.gradient {
+    display: flex;
+    height: 100vh;
+    transition: 0.9s;
+    flex: 1;
+
+    align-items: center;
+    justify-content: center;
+    cursor: url(https://i.imgur.com/wz8iY4B.png) 16 16, pointer;
+}
+
+.ripple {
+    width: 200%;
+    height: 200%;
+    position: fixed;
+    z-index: 9999;
+    transition: transform .5s linear;
+    transform: scale(0);
+    transform-origin: center;
+    border-radius: 100%;
+    cursor: url(https://i.imgur.com/NRHTafk.png) 16 16, crosshair;
+}
+
+.ripple--active {
+    transform: scale(1);
+}
+
+.ripple--complete {
+    left: 0!important;
+    top: 0!important;
+    width: 100%!important;
+    height: 100%!important;
+    border-radius: 0!important;
+}
+
+@media (max-width: 1200px) {
+
+    .container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        flex-direction: column;
+    }
+
+    .size_dlock {
+        padding: 30px ;
+    }
+}
+
+

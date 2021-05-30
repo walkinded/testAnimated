@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/fm.revealator.jquery.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Google</title>
+</head>
+<body>
+    <section class="main">
+        <div class="container">
+            <div class="block">
+                <div class="gradient size_dlock fone1 revealator-zoomin revealator-once" data-gradient-css="linear-gradient(to top, #00C69E 100%, #00C69E 100%)">
+                    <img class="hover_img" src="img/logoGoogle.svg" alt="">
+                </div>
+            </div>
+            <div class="block">
+                <div class="gradient size_dlock fone2 revealator-zoomin revealator-once"  data-gradient-css="linear-gradient(to top, #00E18F, #00E18F 100%)">
+                    <img class="hover_img" src="img/1.svg" alt="">
+                </div>
+            </div>
+            <div class="block">
+                <div class="gradient size_dlock fone3 revealator-zoomin revealator-once"  data-gradient-css="linear-gradient(to top, #0095DF, #0095DF 100%)">
+                    <img class="hover_img" src="img/pixel.svg" alt="">
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="gradient size_dlock fone4 revealator-zoomin revealator-once"  data-gradient-css="linear-gradient(to top, #AD3DB6, #AD3DB6 100%)">
+                    <img class="hover_img" src="img/pixelXL.svg" alt="">
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="gradient size_dlock fone5 revealator-zoomin revealator-once"  data-gradient-css="linear-gradient(to top, #F7CA00, #F7CA00 100%)">
+                    <img class="hover_img" src="img/homePod.svg" alt="">
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="gradient size_dlock fone6 revealator-zoomin revealator-once"  data-gradient-css="linear-gradient(to top, #FA7700, #FA7700 100%)">
+                    <img class="hover_img" src="img/chrome.svg" alt="">
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="gradient size_dlock fone7 revealator-zoomin revealator-once"  data-gradient-css="linear-gradient(to top, #FF2B21, #FF2B21 100%)">
+                    <img class="hover_img" src="img/android12.svg" alt="">
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="gradient size_dlock fone8 revealator-zoomin revealator-once"  data-gradient-css="linear-gradient(to top, #5A878C, #5A878C 100%)">
+                    <img class="hover_img" src="img/newDesigne.svg" alt="">
+                </div>
+            </div>
+        </div>
+          
+        <div class="ripple"></div>
+    </section>
+
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/fm.revealator.jquery.min.js"></script>  
+
+    <script>
+        var ripple = $('.ripple'), // "капля"
+        rippleSize = screenProp(), // размер капли
+        posLeft = 0,
+        posTop = 0;
+
+        ripple.outerWidth(rippleSize * 2).outerHeight(rippleSize * 2); // задаем капле размер в 2 раза больше размера экрана, чтобы "покрыть" всю видимую область страницы
+
+        $('.gradient').click(function(e) { // клик на градиент
+            $('body').addClass('fixed'); // блокируем прокрутку экрана
+            posLeft = e.pageX - rippleSize - $(window).scrollLeft(); // положение капли слева
+            posTop = e.pageY - rippleSize - $(window).scrollTop(); // положение капли сверху
+            var gradient = $(this).attr('data-gradient-css'); // получаем код градиента
+            ripple.addClass('ripple--active').css({ // добавляем класс для увеличения и прописываем стили
+                'left': posLeft + 'px',
+                'top': posTop + 'px',
+                'background-image': gradient
+        });
+        setTimeout(function() { // после увеличения
+            ripple.addClass('ripple--complete'); // добавляем класс, который выровнит каплю точно по краям экрана
+        }, 500); // время анимации увеличения
+        });
+
+        ripple.on('click', function() { // при клике на каплю
+        if (ripple.hasClass('ripple--complete')) { // если анимация закончилась
+            $('body').removeClass('fixed'); // возвращаем странице прокрутку
+            ripple.removeClass('ripple--complete ripple--active'); // удаляем классы
+        }
+        });
+
+        $(window).on('resize', function() { // при ресайзе окна
+            rippleSize = screenProp(); // пересчитываем размер капли
+            ripple.outerWidth(rippleSize * 2).outerHeight(rippleSize * 2); // и задаем ей полученные значения
+        });
+
+        // функция для определения максимального значения из высоты и ширины экрана
+        function screenProp() {
+            if ($(window).width() > $(window).height()) {
+                return $(window).width();
+            } else {
+                return $(window).height();
+            }
+        }
+    </script>
+    
+</body>
+</html>
